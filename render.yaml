@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: futsal-tucuman
+    runtime: node
+    plan: starter
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    disk:
+      name: futsal-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /data
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        sync: false

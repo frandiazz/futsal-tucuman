@@ -1,0 +1,19 @@
+{
+ "Elite 1": {
+  "": "Mala Fama,1,1,0,0,8,0;Cariocas,1,1,0,0,6,0;El Chañá,1,1,0,0,6,2;Atlético Tucumán,1,1,0,0,4,1;La Plazita,1,1,0,0,3,1;San Martín,1,1,0,0,2,1;Técnico,1,0,0,1,1,2;Gymnasium Rojo,1,0,0,1,1,3;Balcor,1,0,0,1,1,4;Gymnasium Azul,1,0,0,1,2,6;Barrio Murga,1,0,0,1,0,6;Lomas FC,1,0,0,1,0,8"
+ },
+ "Elite 2": {
+  "": "La Matheu,3,3,0,0,14,3;La Bomba,3,3,0,0,14,4;Acupef,3,2,1,0,10,5;Estelares,3,2,0,1,6,2;Cariocas Usina Rosa,3,1,1,1,4,3;Técnico,3,1,1,1,5,8;Niupi FS,3,1,0,2,5,6;Cacique,2,1,0,1,4,7;Los Villanos,3,1,0,2,5,9;La Diagonal,2,0,1,1,4,8;Usina Cariocas Negro,3,0,0,3,3,10;La N,3,0,0,3,1,10"
+ },
+ "Primera A": {
+  "": "UTA,3,3,0,0,12,3;Alianza,3,2,1,0,6,3;La Esquina,3,2,0,1,12,5;Los Maga,3,1,2,0,9,7;La Cuadra,3,1,2,0,9,7;Mala Fama,3,1,1,1,11,12;Don Bosco,3,1,1,1,6,10;Atlético Tucumán,3,1,0,2,7,7;Los Leones,3,1,0,2,4,9;Primera Junta,3,0,1,1,2,4;Valdocco,3,0,0,3,3,6;Levante,2,0,0,2,6,14"
+ },
+ "Primera B": {
+  "": "Alianza,4,4,0,0,12,7;La Plazita,4,3,1,0,11,5;Los Pibes,4,3,1,0,10,5;ATSA,4,3,0,1,6,3;Muchachos Negro,4,2,1,1,16,10;La N,4,2,0,2,16,11;Gymnas Z,5,2,0,3,14,13;Técnico,4,2,0,2,9,8;La Diagonal,5,2,0,3,9,11;Malvinas Argentinas,5,2,0,3,6,8;Templo,4,1,0,3,7,9;San Martín,3,0,1,2,3,10;Muchachos Azul,3,0,0,3,6,15;Casa del Radiador,3,0,0,3,1,11"
+ },
+ "Primera C": {
+  "Zona A": "Los Santos,7,6,1,0,23,7;La Vinotinto,6,6,0,0,26,13;Los Leones,7,4,2,1,26,14;Acupef,7,4,1,2,25,18;La Cuadriya,7,3,2,2,23,21;Feput,6,2,2,2,19,15;La S,6,2,0,4,10,13;Barrio Parque,6,1,2,3,12,18;La Bomba,6,1,0,5,11,25;Templo Negro,6,1,0,5,15,32;Estelares C,6,0,0,6,12,26",
+  "Zona B": "El Dionisio,7,5,1,1,23,15;Barracas,6,4,1,1,24,15;El Chañá,6,4,1,1,19,14;Templo Naranja,6,3,1,2,21,16;Barrio Gráfico II,6,3,1,2,20,19;Los Sultanes,7,2,3,2,16,18;Estelares B,6,2,1,3,17,18;Inter,7,2,1,4,13,20;La Fusión,7,1,2,4,14,19;Tiki Taka,6,0,4,2,12,18;Valdocco,6,1,0,5,11,18",
+  "Zona C": "Escuela Municipal,7,5,1,1,27,15;Santos,6,5,0,1,17,9;Yaye,6,5,0,1,16,8;San Martín,6,4,1,1,17,8;Invictus,7,3,2,2,16,15;El Rejunte,6,1,3,2,12,16;El Chaja,6,2,1,3,17,25;Los Maga,6,2,0,4,16,15;El Arenal,7,1,1,5,11,20;Noperd,7,0,3,4,12,22;Lamadrid FS,6,1,0,5,8,16"
+ }
+}

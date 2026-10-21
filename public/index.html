@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Futsal Tucumán · Fútbol de Salón</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07110c;--b2:#0d1b13;--ink:#f4f7f2;--mu:#9fb3a6;--y:#ffd60a;--g:#19c37d;--r:#ff6b6b;--ln:rgba(255,255,255,.12);color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Barlow Condensed",Impact,sans-serif;text-transform:uppercase;line-height:.95}
+a{color:inherit;text-decoration:none}.w{max-width:980px;margin:0 auto;padding:0 18px}
+nav{position:sticky;top:0;z-index:9;background:rgba(7,17,12,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+nav .w{display:flex;align-items:center;gap:14px;height:56px;overflow-x:auto;scrollbar-width:none}
+.lg{font:900 1.4rem "Barlow Condensed";text-transform:uppercase;flex:none}.lg b{color:var(--y)}
+nav a.l{flex:none;color:var(--mu);font-size:.9rem;font-weight:600}nav a.on{color:var(--y)}
+.pn{margin-left:auto;background:var(--y);color:#111!important;padding:7px 14px;border-radius:99px}
+main{padding:28px 0 50px;min-height:70vh}
+h1{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:900}h1 span{color:var(--y)}h2{font-size:1.9rem;font-weight:900;margin:28px 0 12px}h2 span{color:var(--g)}
+.mu{color:var(--mu)}.tag{display:inline-block;padding:5px 12px;border:1px solid var(--ln);border-radius:99px;color:var(--y);font-size:.8rem;margin-bottom:12px}
+.gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.cd{padding:20px;border:1px solid var(--ln);border-radius:16px;background:var(--b2)}.cd h3{font-size:1.3rem;margin-bottom:4px}.cd p{color:var(--mu);font-size:.92rem}
+.bn{padding:18px;border-radius:16px;border:1px solid var(--ln);background:linear-gradient(135deg,rgba(25,195,125,.25),rgba(255,214,10,.1));margin:20px 0}
+.tb{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none}
+.tb button,.bt{flex:none;border:1px solid var(--ln);background:var(--b2);color:var(--ink);padding:9px 16px;border-radius:99px;font:600 .9rem Inter;cursor:pointer;display:inline-block}
+.tb button.on{background:var(--y);color:#111;border-color:var(--y)}.tb.z button.on{background:var(--g);color:#06140d;border-color:var(--g)}.bt.p{background:var(--y);color:#111;border-color:var(--y)}
+.bx{border:1px solid var(--ln);border-radius:16px;background:var(--b2);overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:430px}th,td{padding:9px 7px;text-align:center;font-size:.9rem;white-space:nowrap}
+th{color:var(--mu);font-size:.7rem;text-transform:uppercase;border-bottom:1px solid var(--ln)}td:nth-child(2),th:nth-child(2){text-align:left;width:100%}
+tr+tr td{border-top:1px solid var(--ln)}td.p{color:var(--y);font-weight:700}tr.t td:first-child{box-shadow:inset 3px 0 var(--g)}
+.wr{margin-left:6px;padding:1px 7px;border-radius:99px;background:rgba(255,107,107,.15);color:var(--r);font-size:.7rem}.ok{color:var(--g)}.no{color:var(--r)}
+label{display:block;font-size:.78rem;color:var(--mu);margin:10px 0 4px}
+input,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--ln);background:var(--bg);color:var(--ink);font:inherit}
+.fr{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0 12px}
+.ms{margin:12px 0;padding:10px 14px;border-radius:10px;font-size:.9rem;display:none}.ms.ok{display:block;background:rgba(25,195,125,.15)}.ms.no{display:block;background:rgba(255,107,107,.15)}
+.li{padding:10px 0;border-top:1px solid var(--ln);font-size:.92rem}.pl{display:flex;flex-wrap:wrap;gap:8px}.pl span{padding:6px 12px;border-radius:99px;border:1px solid var(--ln);background:var(--b2);font-size:.88rem}
+.sp{border:1px dashed var(--ln);border-radius:14px;padding:20px;text-align:center;color:var(--mu);font-size:.85rem}
+footer{padding:24px 0;border-top:1px solid var(--ln);color:var(--mu);font-size:.8rem;text-align:center}
+</style>
+</head>
+<body>
+<nav><div class="w"><a class="lg" href="#/">Futsal<b>Tuc</b></a><a class="l" href="#/tablas">Tablas</a><a class="l" href="#/resultados">Resultados</a><a class="l" href="#/seleccion">Selección</a><a class="l" href="#/sedes">Sedes</a><a class="l pn" href="#/panel" id="pn">Ingresar</a></div></nav>
+<main class="w" id="v"></main>
+<footer><div class="w">Sitio no oficial para la Asociación Tucumana de Fútbol de Salón. Las posiciones parten de las tablas publicadas del Clausura 2026 y suman los resultados cargados en la plataforma.</div></footer>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const SEDES=["La Usina","La Diagonal","Complejo Avellaneda"],HRS=["19:00","20:00","21:00","22:00","23:00"];
+const st={me:{},comps:[],d:null,z:"",tab:"res",pc:null};
+async function api(p,o){const r=await fetch("/api/"+p,o&&{method:o.m,headers:{"Content-Type":"application/json"},body:o.b&&JSON.stringify(o.b)});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||"Error");return j}
+const divs=()=>[...new Set(st.comps.map(c=>c.division))],zonas=d=>st.comps.filter(c=>c.division===d).map(c=>c.zona),cid=(d,z)=>st.comps.find(c=>c.division===d&&c.zona===z)?.id;
+const opts=(a,f=x=>x,g=x=>x)=>a.map(x=>`<option value="${esc(f(x))}">${esc(g(x))}</option>`).join("");
+const tabs=(a,cur,k,c="")=>`<div class="tb ${c}">${a.map(x=>`<button class="${x===cur?'on':''}" data-${k}="${esc(x)}">${esc(x)||"Única"}</button>`).join("")}</div>`;
+const table=(r,n)=>`<div class="bx"><table><thead><tr><th>#</th><th>Equipo</th><th>Pts</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>GF</th><th>GC</th><th>DG</th></tr></thead><tbody>${r.slice(0,n||999).map((t,i)=>`<tr class="${i<4?'t':''}"><td class="mu">${i+1}</td><td>${esc(t.nombre)}${t.revisar?'<span class="wr" title="PJ no coincide con G+E+P">revisar</span>':''}</td><td class="p">${t.pts}</td><td>${t.pj}</td><td>${t.g}</td><td>${t.e}</td><td>${t.p}</td><td>${t.gf}</td><td>${t.gc}</td><td>${t.dg>0?'+':''}${t.dg}</td></tr>`).join("")}</tbody></table></div>`;
+const msg=(t,ok)=>{const m=$("#ms");if(m){m.className="ms "+(ok?"ok":"no");m.textContent=t}};
+const ST=`<h2>Seguinos</h2><p><a class="bt p" href="https://www.instagram.com/tucumanfutsal/" target="_blank" rel="noopener">📸 @tucumanfutsal</a></p>`;
+const V={
+async inicio(){const t=await api("tablas?comp="+cid("Elite 1",""));return`<span class="tag">Torneo Clausura 2026</span><h1>El futsal<br>tucumano,<br><span>en un solo lugar</span></h1><p class="mu" style="max-width:540px;margin:14px 0 20px">Tablas automáticas, resultados, selección y sedes de la Asociación Tucumana de Fútbol de Salón.</p><a class="bt p" href="#/tablas">Ver tablas</a>
+<div class="bn"><h3>🏆 Argentino C-17 en Tucumán</h3><p class="mu">19 al 24 de octubre · Complejo Natalio Mirkin · Debut de la Naranja el lunes 19, 21.30, ante Corrientes. <a href="#/seleccion" style="color:var(--y)">Ver selección →</a></p></div><h2>Elite 1 · <span>top 5</span></h2>${table(t,5)}<h2>Auspiciantes</h2><div class="gr"><div class="sp">Sponsor principal</div><div class="sp">Sponsor</div><div class="sp">Sponsor</div></div>${ST}`},
+async tablas(){const t=await api("tablas?comp="+cid(st.d,st.z));return`<h1 style="font-size:3.2rem">Tablas <span>Clausura 2026</span></h1><p class="mu" style="margin:8px 0 16px">Victoria 2 pts, empate 1. Orden: puntos, diferencia de gol y goles a favor (a confirmar con el reglamento).</p>${tabs(divs(),st.d,"d")}${zonas(st.d)[0]===""?"":tabs(zonas(st.d),st.z,"z","z")}${table(t)}`},
+async resultados(){const r=await api("partidos");return`<h1 style="font-size:3.2rem">Resultados</h1>${r.length?r.map(x=>`<div class="li"><b>${esc(x.local)} ${x.gl} - ${x.gv} ${esc(x.visitante)}</b><br><span class="mu">${esc(x.division)}${x.zona?" · "+esc(x.zona):""} · ${esc(x.creado)}</span></div>`).join(""):'<p class="mu" style="margin:12px 0">Todavía no se cargaron resultados en la plataforma.</p>'}`},
+async seleccion(){return`<span class="tag">Argentino C-17 · 19 al 24 de octubre</span><h1 style="font-size:3.2rem">La <span>Naranja</span></h1><p class="mu" style="margin:8px 0">Complejo Natalio Mirkin. Técnico: Enzo Cuevas, con Juan Carrillo y Santiago Tejeda; preparador físico: Eduardo Sal.</p><h2>Zona <span>C</span></h2><div class="gr"><div class="cd"><h3>Lun 19 · 21.30</h3><p>Tucumán vs Corrientes</p></div><div class="cd"><h3>Mar 20 · 21.30</h3><p>Tucumán vs Comodoro Rivadavia</p></div><div class="cd"><h3>Mié 21 · 21.30</h3><p>Tucumán vs Río Grande</p></div></div><h2>Nómina</h2><div class="pl">${"Lisandro Toledo,Valentín Abad,Geremias Kahlie,Bautista Cabrera,Mateo Salado,Yulian Núñez,Santiago Aguilar,Enzo Pérez,Mateo Sabate,Facundo Moyano,Juan Ignacio Nanterne,Fabricio Gutiérrez,Benjamín Páez,Santino Jiménez,Ignacio Aragón".split(",").map(n=>`<span>${n}</span>`).join("")}</div><h2>Historia <span>reciente</span></h2><div class="gr"><div class="cd"><h3>2022</h3><p>Subcampeón argentino de mayores, derrota 3-0 ante Mendoza en la final.</p></div><div class="cd"><h3>2023</h3><p>Campeón argentino por primera vez: 4-3 a Mendoza.</p></div></div>`},
+async sedes(){return`<h1 style="font-size:3.2rem">Sedes</h1><div class="gr" style="margin-top:14px">${[...SEDES,"Complejo Natalio Mirkin"].map(s=>`<div class="cd"><h3>📍 ${s}</h3><p>${s.includes("Mirkin")?"Sede del Argentino C-17.":"Sede de partidos del torneo."}</p></div>`).join("")}</div>`},
+async panel(){
+ if(!st.me.usuario)return`<h1 style="font-size:3rem">Ingresar</h1><div class="cd" style="max-width:380px;margin-top:14px"><label>Usuario</label><input id="lu" autocomplete="username"><label>Clave</label><input id="lc" type="password" autocomplete="current-password"><p style="margin-top:14px"><button class="bt p" data-a="login">Entrar</button></p><div class="ms" id="ms"></div></div>`;
+ const adm=st.me.rol==="admin",T=[["res","Cargar resultado"],...(adm?[["eq","Inscribir equipo"],["rs","Reservas"],["co","Cobros"],["us","Usuarios"]]:[])];
+ st.pc=st.pc||cid(st.d,st.z);const c=st.comps.find(x=>x.id===st.pc),eqs=await api("equipos?comp="+st.pc);
+ const sel=`<div class="fr"><div><label>División</label><select id="pc">${opts(st.comps,x=>x.id,x=>x.division+(x.zona?" · "+x.zona:""))}</select></div></div>`;
+ let h;
+ if(st.tab==="res"){const rs=await api("partidos");h=sel+`<div class="fr"><div><label>Local</label><select id="rl">${opts(eqs,x=>x.id,x=>x.nombre)}</select></div><div><label>Goles local</label><input id="gl" type="number" min="0" max="99" value="0"></div><div><label>Visitante</label><select id="rv">${opts(eqs,x=>x.id,x=>x.nombre)}</select></div><div><label>Goles visitante</label><input id="gv" type="number" min="0" max="99" value="0"></div></div><p style="margin-top:14px"><button class="bt p" data-a="res">Guardar resultado</button></p>${rs.slice(0,8).map(x=>`<div class="li">${esc(x.local)} ${x.gl}-${x.gv} ${esc(x.visitante)} <span class="mu">· ${esc(x.division)}</span>${adm?` <button class="bt" data-del="${x.id}" style="padding:3px 10px">Borrar</button>`:""}</div>`).join("")}`}
+ else if(st.tab==="eq")h=sel+`<label>Nombre del equipo</label><input id="en" maxlength="80"><p style="margin-top:14px"><button class="bt p" data-a="eq">Inscribir</button></p>`;
+ else if(st.tab==="rs"){const rv=await api("reservas");h=`<div class="fr"><div><label>Sede</label><select id="rs">${opts(SEDES)}</select></div><div><label>Cancha</label><select id="rc"><option>Cancha 1</option><option>Cancha 2</option></select></div><div><label>Fecha</label><input id="rf" type="date"></div><div><label>Horario</label><select id="rh">${opts(HRS)}</select></div></div><label>Detalle</label><input id="rd" maxlength="120"><p style="margin-top:14px"><button class="bt p" data-a="rs">Reservar</button></p>${rv.map(b=>`<div class="li">${esc(b.sede)} · ${esc(b.cancha)} · ${b.fecha} ${b.hora} — ${esc(b.detalle)||"sin detalle"}</div>`).join("")}`}
+ else if(st.tab==="co"){const pg=await api("pagos");h=sel+`<div class="fr"><div><label>Equipo</label><select id="ce">${opts(eqs,x=>x.id,x=>x.nombre)}</select></div><div><label>Concepto</label><select id="cc"><option>Inscripción</option><option>Pago por partido</option></select></div><div><label>Monto ($)</label><input id="cm" type="number" min="1"></div></div><p style="margin-top:14px"><button class="bt p" data-a="co">Registrar pago</button></p>${pg.map(g=>`<div class="li">${esc(g.equipo)} · ${esc(g.division)} · ${g.concepto} · $${g.monto} · ${g.habilitado?'<span class="ok">Habilitado</span>':'<span class="no">Sin inscripción</span>'}</div>`).join("")}`}
+ else h=`<div class="fr"><div><label>Usuario</label><input id="uu" maxlength="30"></div><div><label>Clave (mín. 8)</label><input id="uc" type="password"></div><div><label>Rol</label><select id="ur"><option>planillero</option><option>admin</option></select></div></div><p style="margin-top:14px"><button class="bt p" data-a="us">Crear usuario</button></p>`;
+ return`<h1 style="font-size:3rem">Panel de <span>gestión</span></h1><p class="mu" style="margin:8px 0 14px">Sesión: ${esc(st.me.usuario)} (${st.me.rol}) · <a href="#/panel" data-a="out" style="color:var(--y)">Salir</a></p><div class="tb">${T.map(t=>`<button class="${t[0]===st.tab?'on':''}" data-t="${t[0]}">${t[1]}</button>`).join("")}</div><div class="cd">${h}<div class="ms" id="ms"></div></div>`}
+};
+async function go(){const h=(location.hash.replace("#/","")||"inicio"),k=V[h]?h:"inicio";
+ try{$("#v").innerHTML=await V[k]()}catch(e){$("#v").innerHTML=`<p class="no">${esc(e.message)}</p>`}
+ document.querySelectorAll("nav a.l").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#/"+k));
+ $("#pn").textContent=st.me.usuario?"Panel":"Ingresar";const p=$("#pc");if(p&&st.pc)p.value=st.pc}
+addEventListener("hashchange",()=>{scrollTo(0,0);go()});
+document.addEventListener("change",e=>{if(e.target.id==="pc"){st.pc=+e.target.value;go()}});
+document.addEventListener("click",async e=>{const a=e.target.closest("[data-a],[data-d],[data-z],[data-t],[data-del]");if(!a)return;const d=a.dataset;
+ if(d.d!==undefined){st.d=d.d;st.z=zonas(st.d)[0];return go()}if(d.z!==undefined){st.z=d.z;return go()}if(d.t){st.tab=d.t;return go()}
+ try{
+ if(d.del){await api("resultados/"+d.del,{m:"DELETE"});return go()}
+ if(d.a==="out"){await api("logout",{m:"POST"});st.me={};return go()}
+ if(d.a==="login"){st.me=await api("login",{m:"POST",b:{usuario:$("#lu").value,clave:$("#lc").value}});return go()}
+ if(d.a==="res"){await api("resultados",{m:"POST",b:{comp:+$("#pc").value,local:+$("#rl").value,visitante:+$("#rv").value,gl:+$("#gl").value,gv:+$("#gv").value}});await go();msg("Resultado guardado.",1)}
+ if(d.a==="eq"){await api("equipos",{m:"POST",b:{comp:+$("#pc").value,nombre:$("#en").value}});await go();msg("Equipo inscripto.",1)}
+ if(d.a==="rs"){await api("reservas",{m:"POST",b:{sede:$("#rs").value,cancha:$("#rc").value,fecha:$("#rf").value,hora:$("#rh").value,detalle:$("#rd").value}});await go();msg("Reserva confirmada.",1)}
+ if(d.a==="co"){await api("pagos",{m:"POST",b:{equipo:+$("#ce").value,concepto:$("#cc").value,monto:+$("#cm").value}});await go();msg("Pago registrado.",1)}
+ if(d.a==="us"){await api("usuarios",{m:"POST",b:{usuario:$("#uu").value,clave:$("#uc").value,rol:$("#ur").value}});await go();msg("Usuario creado.",1)}
+ }catch(er){msg(er.message)}});
+(async()=>{st.comps=await api("comps");st.me=await api("me");st.d="Elite 1";st.z="";go()})();
+</script>
+</body>
+</html>
