@@ -1,0 +1,23 @@
+# Base de datos y secretos (NUNCA subir)
+data/
+*.db
+*.db-wal
+*.db-shm
+secret.key
+
+# Capturas de prueba generadas por test/screenshots.js
+screenshots/
+
+# Dependencias (el proyecto no usa ninguna, pero por si acaso)
+node_modules/
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Entorno
+.env
+.env.local

@@ -1,7 +1,14 @@
 {
   "name": "futsal-tucuman",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "description": "Plataforma web para la Asociación Tucumana de Fútbol de Salón",
   "engines": { "node": ">=22.13" },
-  "scripts": { "start": "node server.js" }
+  "scripts": {
+    "start": "node server.js",
+    "test": "npm run test:api && npm run test:static && npm run test:browser",
+    "test:api": "node --test test/api.test.js",
+    "test:static": "node test/imports.test.js && node test/bindings.test.js && node test/escapehtml.test.js && node test/encoding.test.js",
+    "test:browser": "node test/browser.test.js"
+  }
 }

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <defs>
+    <linearGradient id="venueBg" x1="0" y1="0" x2="400" y2="300">
+      <stop offset="0%" stop-color="#0B1D13"/>
+      <stop offset="100%" stop-color="#0F2A1C"/>
+    </linearGradient>
+    <linearGradient id="venueAccent" x1="0" y1="0" x2="400" y2="0">
+      <stop offset="0%" stop-color="#19C37D"/>
+      <stop offset="100%" stop-color="#FFD60A"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#venueBg)"/>
+  
+  <!-- Stadium silhouette -->
+  <g stroke="url(#venueAccent)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Stands -->
+    <path d="M40,220 L40,80 Q40,50 70,50 L330,50 Q360,50 360,80 L360,220"/>
+    <!-- Roof -->
+    <path d="M50,80 Q100,30 200,20 Q300,30 350,80"/>
+    <!-- Pillars -->
+    <line x1="80" y1="80" x2="80" y2="220"/>
+    <line x1="150" y1="80" x2="150" y2="220"/>
+    <line x1="250" y1="80" x2="250" y2="220"/>
+    <line x1="320" y1="80" x2="320" y2="220"/>
+    <!-- Pitch visible inside -->
+    <rect x="70" y="100" width="260" height="100" rx="4"/>
+    <line x1="200" y1="100" x2="200" y2="200" stroke-dasharray="6,6"/>
+    <circle cx="200" cy="150" r="30"/>
+    <rect x="70" y="125" width="20" height="50" rx="2"/>
+    <rect x="310" y="125" width="20" height="50" rx="2"/>
+  </g>
+  
+  <!-- Floodlights -->
+  <g fill="url(#venueAccent)" fill-opacity="0.3">
+    <circle cx="70" cy="60" r="6"/>
+    <circle cx="150" cy="50" r="6"/>
+    <circle cx="250" cy="50" r="6"/>
+    <circle cx="330" cy="60" r="6"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="260" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#8AA895" text-anchor="middle" letter-spacing="0.08em">SEDE OFICIAL</text>
+  <text x="200" y="278" font-family="system-ui, sans-serif" font-size="11" fill="#4A6B54" text-anchor="middle" text-transform="uppercase" letter-spacing="0.1em">Asociación Tucumana de Fútbol de Salón</text>
+</svg>

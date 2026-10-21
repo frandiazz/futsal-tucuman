@@ -124,7 +124,7 @@ async function api(req, res, u) {
   }
   if (m === 'GET' && p === '/api/comps') return json(res, 200, db.prepare('SELECT c.*, t.nombre torneo, (SELECT COUNT(*) FROM equipos WHERE comp_id=c.id) equipos FROM comps c JOIN torneos t ON t.id=c.torneo_id ORDER BY c.id').all());
   if (m === 'GET' && p === '/api/tablas') { const id = int(+u.searchParams.get('comp')); return id ? json(res, 200, tabla(id)) : json(res, 400, { error: 'Falta comp.' }); }
-  if (m === 'GET' && p === '/api/partidos') return json(res, 200, db.prepare(`SELECT p.id,p.gl,p.gv,p.creado,c.division,c.zona,l.nombre local,v.nombre visitante FROM partidos p JOIN comps c ON c.id=p.comp_id JOIN equipos l ON l.id=p.local_id JOIN equipos v ON v.id=p.visit_id ORDER BY p.id DESC LIMIT 60`).all());
+  if (m === 'GET' && p === '/api/partidos') return json(res, 200, db.prepare(`SELECT p.id,p.comp_id,p.gl,p.gv,p.creado,p.por,'jugado' estado,c.division,c.zona,l.nombre local,v.nombre visitante FROM partidos p JOIN comps c ON c.id=p.comp_id JOIN equipos l ON l.id=p.local_id JOIN equipos v ON v.id=p.visit_id ORDER BY p.id DESC LIMIT 60`).all());
   if (m === 'GET' && p === '/api/equipos') return json(res, 200, db.prepare('SELECT id,nombre FROM equipos WHERE comp_id=? ORDER BY nombre').all(+u.searchParams.get('comp') || 0));
   if (m === 'POST' && p === '/api/resultados') {
     need(s, 'admin', 'planillero'); const b = await body(req), c = int(b.comp), l = int(b.local), v = int(b.visitante), gl = int(b.gl), gv = int(b.gv);
@@ -527,7 +527,7 @@ async function api(req, res, u) {
   return json(res, 404, { error: 'No encontrado.' });
 }
 
-const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.webp': 'image/webp' };
+const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff': 'font/woff', '.woff2': 'font/woff2', '.ico': 'image/x-icon' };
 
 const server = http.createServer(async (req, res) => {
   res.setHeader('X-Content-Type-Options', 'nosniff'); res.setHeader('X-Frame-Options', 'DENY');
